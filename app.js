@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const userroutes = require('./routes/userroutes');
+const indexroutes = require('./routes/indexroute');
 const dotenv = require('dotenv');
 dotenv.config();
 const connectDB = require('./config/db');
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use("/user", userroutes);
+app.use("/", indexroutes);
 
 
 
